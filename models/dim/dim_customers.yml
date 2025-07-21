@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Customer dimension table.
+    columns:
+      - name: customer_key
+        description: Surrogate key; must be unique and not null.
+        tests:
+          - unique
+          - not_null
+
+      - name: email
+        description: Email address must not be null.
+        tests:
+          - not_null
+

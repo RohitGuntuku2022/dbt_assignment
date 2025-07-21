@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: fact_orders
+    description: Fact table of order items
+    columns:
+      - name: order_key
+        description: Surrogate key for fact table
+        tests:
+          - not_null
+          - unique
+
+      - name: quantity
+        description: Each line item must have a positive quantity
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+
+      - name: TOTAL_PRICE
+        description: total price must be positive or zero
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      
+      - name: STATUS
+        description: Order status must be one of the valid values
+        tests:
+         - not_null
+         - accepted_values:
+             values: ['completed',
+                      'pending',
+                      'cancelled']
+          

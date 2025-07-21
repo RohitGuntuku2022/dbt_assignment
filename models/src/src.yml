@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: PLANETKART_RAW
+    tables:
+      - name: customers
+        loaded_at_field: _AIRBYTE_EXTRACTED_AT
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: products
+        loaded_at_field: _AIRBYTE_EXTRACTED_AT
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: order_items
+        loaded_at_field: _AIRBYTE_EXTRACTED_AT
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: regions
+        loaded_at_field: _AIRBYTE_EXTRACTED_AT
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: orders
+        loaded_at_field: _AIRBYTE_EXTRACTED_AT
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
