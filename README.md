@@ -190,7 +190,3 @@ README.md
   - This `README.md`
 
 - Tests are defined in model YAML files (per-model) and cover key business rules.
-
-- If a data source does **not** have a `loaded_at` column, **freshness checks are skipped**
-
-- Adapt the structure to fit your project and **dbt best practices**
